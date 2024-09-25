@@ -1,8 +1,8 @@
 ### Monitoramento de impressoras
 
 O projeto visa atender o monitoramento dos suprimentos de impressoras HP,Samsung e Zebra dentro de um rede,<br />
-faz as requisições por snmp para busca das informações e exibe o relatório em tela<br />
-facilitando o acompanhamento para solicitação de novos suprimentos.
+faz as requisições por snmp para busca das informações e exibe o relatório em tela facilitando o acompanhamento <br />
+para solicitação de novos suprimentos.
 
 <br />
 <br />
