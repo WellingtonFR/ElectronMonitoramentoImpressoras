@@ -1,0 +1,69 @@
+<div class="container">
+
+  <div class="content">
+    <table id="tabela-impressoras">
+      <tr>
+        <th onclick="sortTable(1)">Fila</th>
+        <th onclick="sortTable(2)">IP</th>
+        <th onclick="sortTable(3)">Serial</th>
+        <th onclick="sortTable(4)">Modelo</th>
+        <th onclick="sortTable(3)">Contador</th>
+        <th onclick="sortTable(6)">Tonalidade</th>
+        <th onclick="sortTable(5)">Velocidade</th>
+        <th onclick="sortTable(7)">Largura</th>
+        <th onclick="sortTable(8)">Método</th>
+        <th onclick="sortTable(9)">Sensor</th>
+        <th onclick="sortTable(10)">Rede</th>
+        <th onclick="sortTable(11)">Cabeça</th>
+        <th onclick="sortTable(12)">Pause</th>
+
+      </tr>
+
+      {{#each tabela}}
+      <tr>
+
+        <td class="text-left">{{this.nomeFila}}</td>
+
+        {{#ifString this.rede "Online"}}
+        <td><a href="http://{{this.enderecoFila}}" target="_blank">{{this.enderecoFila}}</a></td>
+        {{/ifString}}
+
+
+        {{#ifString this.rede "Offline"}}
+        <td>{{this.enderecoFila}}</td>
+        {{/ifString}}
+
+        <td>{{this.serial}}</td>
+        <td>{{this.modelo}}</td>
+        <td>{{this.contador}}</td>
+        <td>{{this.tonalidade}}</td>
+        <td>{{this.velocidade}}</td>
+        <td>{{this.largura_etiqueta}}</td>
+        <td>{{this.metodo_impressao}}</td>
+        <td>{{this.tipo_sensor}}</td>
+        <td>{{this.rede_conectada}}</td>
+        <td>{{this.status_cabeca}}</td>
+        <td>{{this.status_pause}}</td>
+
+      </tr>
+      {{/each}}
+    </table>
+  </div>
+</div>
+
+<form method="get" action="/termica/refresh">
+  <button class="btn-float-1">
+    <i class="fa-solid fa-arrows-rotate fa-fw fa-1x btn-load"></i>
+  </button>
+</form>
+
+<script>
+  const btn_load = document.querySelector(".btn-load");
+  const btn_float_1 = document.querySelector(".btn-float-1");
+
+  btn_load.addEventListener("click", () => {
+    btn_load.classList.add("fa-spin");
+    btn_float_1.classList.add("btn-active-green");
+  });
+
+</script>

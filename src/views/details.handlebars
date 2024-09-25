@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div class="card-view">
+    {{#each tabela}}
+
+    {{#ifString this.rede "Online"}}
+    <div id="card-details-online" class="card-details">
+      {{/ifString}}
+
+      {{#ifString this.rede "Offline"}}
+      <div id="card-details-offline" class="card-details">
+        {{/ifString}}
+
+        {{this.nomeFila}}
+
+      </div>
+
+
+      {{/each}}
+    </div>
+
+    <form method="get" action="/refresh/details">
+      <button class="btn-float-1">
+        <i class="fa-solid fa-arrows-rotate fa-fw fa-1x btn-load"></i>
+      </button>
+    </form>
+
+    <script>
+      const btn_load = document.querySelector(".btn-load");
+      const btn_float_1 = document.querySelector(".btn-float-1");
+
+      btn_load.addEventListener("click", () => {
+        btn_load.classList.add("fa-spin");
+        btn_float_1.classList.add("btn-active-green");
+      });
+
+    </script>
